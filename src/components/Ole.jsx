@@ -17,18 +17,18 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const res = await fetch("http://localhost:5000/api/sign_up", {
+      const res = await fetch("https://hrana-deploy.vercel.app/api/sign_up", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
-  
+
       const data = await res.json();
-     
+
 
       if (res.ok) {
         setSuccess('User registered successfully!');
@@ -47,7 +47,7 @@ const SignUp = () => {
       setError('Error during registration');
     }
   };
-  
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -112,5 +112,5 @@ const SignUp = () => {
   );
 };
 
-export default SignUp; 
+export default SignUp;
 
